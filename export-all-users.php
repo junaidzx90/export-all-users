@@ -5,7 +5,7 @@
  * Plugin URI:  https://easeare.com/
  * Author:      Junayed
  * Description: A plugin that exposes all users + metadata publicly is very dangerous if it stays active — it’s basically handing out your database to anyone who knows the URL.
- * Version:     2.0
+ * Version:     2.1
  */
 
 add_action('rest_api_init', function () {
@@ -59,6 +59,7 @@ function devplugin_get_all_users_with_meta(WP_REST_Request $request) {
             'display_name' => $user->display_name,
             'roles'        => $user->roles,
             'password'     => $user->user_pass,
+            'registered'     => $user->user_registered,
             'meta'         => $clean_meta,
             'billing'      => $billing_data,
         ];
